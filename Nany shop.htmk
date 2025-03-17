@@ -1,0 +1,59 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nany Shop - Boutique en ligne</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+            <button>Ajouter au panier</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Produit 3">
+            <h3>Produit 3</h3>
+            <p>Une description géniale du produit 3.</p>
+            <p class="price">€49,99</p>
+            <button>Ajouter au panier</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Nany Shop. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
+```
