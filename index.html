@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NATION GRAPHIQUES</title>
+    <style>
+        :root{
+            --bg1:#0f1724;
+            --bg2:#0b3a66;
+            --accent:#ffb86b;
+            --glass: rgba(255,255,255,0.06);
+            --text:#e6eef8;
+            --muted:#9fb0c8;
+            --radius:12px;
+            --maxw:1100px;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+            background:linear-gradient(135deg,var(--bg1),var(--bg2));
+            color:var(--text);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            position:relative;
+            padding:40px 20px;
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+            min-height:100vh;
+            overflow-x:hidden;
+        }
+
+        /* numéro en arrière-plan (watermark) */
+        .watermark{
+            position:fixed;
+            inset:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            pointer-events:none;
+            z-index:0;
+            mix-blend-mode:overlay;
+            opacity:0.12;
+            font-weight:800;
+            letter-spacing:6px;
+            transform:rotate(-15deg);
+            font-size:clamp(48px,10vw,160px);
+            color:rgba(255,255,255,0.95);
+            user-select:none;
+        }
+
+        .site{
+            width:100%;
+            max-width:var(--maxw);
+            z-index:1;
+        }
+
+        header{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:20px;
+            margin-bottom:28px;
+        }
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            text-decoration:none;
+            color:var(--text);
+        }
+        .logo{
+            width:56px;
+            height:56px;
+            background:linear-gradient(135deg,var(--accent),#ff7a7a);
+            border-radius:12px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#0b1724;
+            font-weight:700;
+            font-size:18px;
+            box-shadow:0 6px 18px rgba(8,20,40,0.6);
+        }
+        nav{display:flex;gap:16px;align-items:center}
+        a.btn-link{
+            text-decoration:none;
+            color:var(--muted);
+            font-size:14px;
+            padding:8px 10px;
+            border-radius:8px;
+        }
+        a.cta{
+            background:var(--accent);
+            color:#071226;
+            padding:10px 14px;
+            border-radius:10px;
+            font-weight:700;
+            text-decoration:none;
+        }
+
+        main{
+            background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+            border-radius:var(--radius);
+            padding:28px;
+            box-shadow:0 10px 30px rgba(2,6,23,0.6);
+            display:grid;
+            grid-template-columns:1fr 360px;
+            gap:24px;
+            align-items:start;
+        }
+
+        .hero{
+            padding:8px 6px;
+        }
+        .kicker{
+            color:var(--accent);
+            font-weight:700;
+            font-size:13px;
+            margin-bottom:12px;
+            display:inline-block;
+        }
+        h1{
+            margin:6px 0 10px;
+            font-size:28px;
+            line-height:1.05;
+            color:var(--text);
+        }
+        p.lead{
+            margin:0 0 18px;
+            color:var(--muted);
+        }
+
+        .services{
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+        }
+        .card{
+            background:var(--glass);
+            padding:14px;
+            border-radius:10px;
+            width:calc(50% - 6px);
+            min-width:140px;
+            box-shadow:inset 0 1px 0 rgba(255,255,255,0.02);
+            color:var(--text);
+            font-size:14px;
+        }
+
+        aside.panel{
+            background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.015));
+            padding:18px;
+            border-radius:12px;
+            height:100%;
+        }
+        .contact-box{
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+            align-items:flex-start;
+        }
+        .phone{
+            background:rgba(255,255,255,0.03);
+            padding:12px 14px;
+            border-radius:10px;
+            width:100%;
+            text-align:left;
+            font-weight:700;
+            color:var(--text);
+            font-size:18px;
+            letter-spacing:2px;
+        }
+        .note{color:var(--muted);font-size:13px}
+
+        footer{
+            margin-top:18px;
+            color:var(--muted);
+            font-size:13px;
+            display:flex;
+            justify-content:space-between;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+
+        /* responsive */
+        @media (max-width:880px){
+            main{grid-template-columns:1fr}
+            .card{width:48%}
+            .watermark{font-size:clamp(48px,16vw,120px)}
+        }
+        @media (max-width:480px){
+            header{flex-direction:column;align-items:flex-start;gap:12px}
+            .card{width:100%}
+            .logo{width:48px;height:48px;font-size:16px}
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">62 06 68 34</div>
+
+    <div class="site" role="main">
+        <header>
+            <a class="brand" href="#">
+                <div class="logo">NG</div>
+                <div>
+                    <div style="font-weight:800">NATION GRAPHIQUES</div>
+                    <div style="font-size:12px;color:var(--muted)">Studio & Création Visuelle</div>
+                </div>
+            </a>
+            <nav aria-label="Navigation">
+                <a class="btn-link" href="#about">À propos</a>
+                <a class="btn-link" href="#services">Services</a>
+                <a class="btn-link" href="#work">Portfolio</a>
+                <a class="cta" href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="kicker">Studio créatif</div>
+                <h1>NATION GRAPHIQUES — Identité visuelle & design digital</h1>
+                <p class="lead">Nous concevons des identités fortes, des sites et des visuels percutants qui racontent votre histoire. Design sur-mesure, impressions et supports digitaux.</p>
+
+                <div id="services" style="margin-top:18px">
+                    <div style="font-weight:700;margin-bottom:10px;color:var(--text)">Services</div>
+                    <div class="services" aria-hidden="false">
+                        <div class="card">Identité visuelle & logo</div>
+                        <div class="card">Design web & UI/UX</div>
+                        <div class="card">Supports imprimés</div>
+                        <div class="card">Réseaux sociaux & contenus</div>
+                    </div>
+                </div>
+
+                <div id="work" style="margin-top:22px">
+                    <div style="font-weight:700;margin-bottom:10px;color:var(--text)">Exemples</div>
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                        <div class="card" style="grid-column:span 1;height:84px;display:flex;align-items:center;justify-content:center">Projet A</div>
+                        <div class="card" style="grid-column:span 1;height:84px;display:flex;align-items:center;justify-content:center">Projet B</div>
+                        <div class="card" style="grid-column:span 1;height:84px;display:flex;align-items:center;justify-content:center">Projet C</div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="panel" id="contact" aria-labelledby="contactTitle">
+                <div id="contactTitle" style="font-weight:800;margin-bottom:8px">Contact</div>
+                <div class="contact-box">
+                    <div class="phone" aria-label="Numéro de téléphone">62 06 68 34</div>
+                    <div class="note">Disponible du lundi au vendredi — Réponse rapide</div>
+                    <a class="cta" href="tel:62066834" style="display:inline-block;margin-top:8px">Appeler</a>
+
+                    <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);width:100%;margin:14px 0">
+
+                    <div style="font-weight:700">Adresse</div>
+                    <div class="note">Basé en ligne — Prestations partout a bamako</div>
+                    <!-- édition visuels : interface d'import pour personnaliser les articles -->
+                    <div style="margin-top:8px">
+                        <button class="cta" id="openEditor" style="padding:8px 10px;font-size:13px">Éditer visuels</button>
+
+                        <div id="editor" style="display:none;margin-top:10px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.02)">
+                            <div style="font-weight:700;margin-bottom:6px">Personnaliser les vignettes (3)</div>
+
+                            <div style="display:flex;gap:8px;flex-wrap:wrap">
+                                <label style="width:72px;text-align:center;font-size:12px">
+                                    <div style="width:72px;height:72px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,0.02)">
+                                        <img id="preview-0" src="./images/logo1.jpg" alt="Aperçu 1" style="width:100%;height:100%;object-fit:cover;display:block">
+                                    </div>
+                                    <input type="file" accept="image/*" data-index="0" style="margin-top:6px">
+                                </label>
+
+                                <label style="width:72px;text-align:center;font-size:12px">
+                                    <div style="width:72px;height:72px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,0.02)">
+                                        <img id="preview-1" src="./images/identite1.jpg" alt="Aperçu 2" style="width:100%;height:100%;object-fit:cover;display:block">
+                                    </div>
+                                    <input type="file" accept="image/*" data-index="1" style="margin-top:6px">
+                                </label>
+
+                                <label style="width:72px;text-align:center;font-size:12px">
+                                    <div style="width:72px;height:72px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,0.02)">
+                                        <img id="preview-2" src="./images/identite2.jpg" alt="Aperçu 3" style="width:100%;height:100%;object-fit:cover;display:block">
+                                    </div>
+                                    <input type="file" accept="image/*" data-index="2" style="margin-top:6px">
+                                </label>
+                            </div>
+
+                            <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                                <button class="cta" id="applyEditor" style="padding:8px 10px;font-size:13px">Appliquer</button>
+                                <button class="btn-link" id="closeEditor" style="padding:8px 10px">Fermer</button>
+                                <div style="font-size:12px;color:var(--muted);margin-left:8px">Remplacez par vos images — elles s'afficheront dans la galerie et l'aperçu.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                    (function(){
+                        const openBtn = document.getElementById('openEditor');
+                        const editor = document.getElementById('editor');
+                        const closeBtn = document.getElementById('closeEditor');
+                        const applyBtn = document.getElementById('applyEditor');
+                        const fileInputsSelector = '#editor input[type="file"]';
+                        const previews = [document.getElementById('preview-0'), document.getElementById('preview-1'), document.getElementById('preview-2')];
+                        let customSrc = [null, null, null];
+                        let delegationInstalled = false;
+
+                        function initInputs(){
+                            document.querySelectorAll(fileInputsSelector).forEach(input => {
+                                input.addEventListener('change', function(){
+                                    const i = Number(this.dataset.index);
+                                    const f = this.files && this.files[0];
+                                    if(!f) return;
+                                    const url = URL.createObjectURL(f);
+                                    customSrc[i] = url;
+                                    if(previews[i]) previews[i].src = url;
+                                });
+                            });
+                            // preload previews from existing tiles if present
+                            const tiles = document.querySelectorAll('.project-tile img');
+                            tiles.forEach((img, idx) => { if(previews[idx] && img.src) previews[idx].src = img.src; });
+                        }
+
+                        window.addEventListener('load', function(){
+                            initInputs();
+                        });
+
+                        openBtn.addEventListener('click', function(){ editor.style.display = editor.style.display === 'block' ? 'none' : 'block'; });
+                        closeBtn.addEventListener('click', function(){ editor.style.display = 'none'; });
+
+                        applyBtn.addEventListener('click', function(){
+                            const tiles = document.querySelectorAll('.project-tile img');
+                            tiles.forEach((img, idx) => { if(customSrc[idx]) img.src = customSrc[idx]; });
+                            // ensure delegated modal open uses the current img src (one-time install)
+                            if(!delegationInstalled){
+                                document.body.addEventListener('click', function(e){
+                                    const btn = e.target.closest('.project-open-btn');
+                                    if(!btn) return;
+                                    e.preventDefault();
+                                    const parent = btn.closest('.project-tile');
+                                    const img = parent && parent.querySelector('img');
+                                    const alt = img && img.alt ? img.alt : btn.getAttribute('aria-label') || 'Projet';
+                                    const src = img && img.src;
+                                    const modal = document.getElementById('projectModal');
+                                    const modalInner = document.getElementById('modalInner');
+                                    if(modal && modalInner){
+                                        modalInner.innerHTML = `<h3 style="margin:0 0 8px">${alt}</h3><img src="${src}" alt="${alt}">`;
+                                        modal.classList.add('open');
+                                        modal.setAttribute('aria-hidden','false');
+                                    }
+                                });
+                                delegationInstalled = true;
+                            }
+                            editor.style.display = 'none';
+                        });
+                    })();
+                    </script>
+                    . <div style="margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                        <div class="project-tile" style="width:72px;height:72px">
+                            <img src="./images/logo1.jpg" alt="Logo — exemple 1">
+                        </div>
+                        <div class="project-tile" style="width:72px;height:72px">
+                            <img src="./images/identite1.jpg" alt="Identité visuelle — exemple 1">
+                        </div>
+                        <div class="project-tile" style="width:72px;height:72px">
+                            <img src="./images/identite2.jpg" alt="Identité visuelle — exemple 2">
+                        </div>
+                        <a class="cta" href="#work" style="margin-left:6px;padding:8px 10px;font-size:13px;display:inline-block">Accès</a>
+                        <div style="width:100%;font-size:12px;color:var(--muted);margin-top:6px">Remplacez les fichiers dans ./images/ (logo1.jpg, identite1.jpg, identite2.jpg) par vos propres visuels.</div>
+                    </div>
+
+                    <footer>
+                        <span>© <strong>NATION GRAPHIQUES</strong></span>
+                        <span style="color:var(--muted)">Réalisation & design interne</span>
+                    </footer>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script>
+        // petit script pour améliorer l'accessibilité du lien "Appeler" sur mobile
+        (function(){
+            const tel = document.querySelector('a[href^="tel:"]');
+            if(!tel) return;
+            tel.addEventListener('click', function(){ /* laissé vide intentionnellement */ });
+        })();
+    </script>
+</body>
+</html>
+<style>
+/* petites règles pour les vignettes projets et la modal */
+.project-tile{height:84px;padding:0;position:relative;overflow:hidden;border-radius:8px}
+.project-tile img{width:100%;height:100%;object-fit:cover;display:block}
+.project-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:8px;background:linear-gradient(transparent, rgba(2,6,23,0.45))}
+.project-overlay .cta{background:rgba(255,255,255,0.08);padding:6px 8px;border-radius:8px;text-decoration:none;color:var(--text);font-weight:700}
+
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:10000}
+.modal.open{display:flex}
+.modal-content{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;max-width:900px;max-height:90vh;overflow:auto;color:var(--text)}
+.modal-content img{max-width:100%;height:auto;border-radius:8px;display:block}
+.modal-close{margin-top:10px;color:var(--muted);cursor:pointer;font-size:14px}
+</style>
+
+<script>
+(function(){
+    const seeds = ['A','B','C'];
+    const titles = ['Projet A','Projet B','Projet C'];
+    const imgs = seeds.map(s => `https://picsum.photos/seed/${s}/900/600`);
+
+    const cards = Array.from(document.querySelectorAll('#work .card'));
+    cards.slice(0,3).forEach((card,i) => {
+        card.classList.add('project-tile');
+        card.innerHTML = `
+            <img src="${imgs[i]}" alt="${titles[i]}">
+            <div class="project-overlay">
+                <a href="#" class="cta project-open-btn" data-index="${i}" aria-label="Voir ${titles[i]}">Voir</a>
+            </div>
+        `;
+    });
+
+    // modal HTML
+    const modalHtml = `
+        <div class="modal" id="projectModal" role="dialog" aria-hidden="true">
+            <div class="modal-content" id="modalContent" aria-live="polite">
+                <div id="modalInner"></div>
+                <div class="modal-close" id="modalClose" role="button" tabindex="0">Fermer</div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+    const modal = document.getElementById('projectModal');
+    const modalInner = document.getElementById('modalInner');
+    const modalClose = document.getElementById('modalClose');
+
+    document.querySelectorAll('.project-open-btn').forEach(btn => {
+        btn.addEventListener('click', function(e){
+            e.preventDefault();
+            const i = Number(this.dataset.index);
+            modalInner.innerHTML = `<h3 style="margin:0 0 8px">${titles[i]}</h3><img src="${imgs[i]}" alt="${titles[i]}">`;
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden','false');
+        });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modalClose.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') closeModal(); });
+    modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+
+    function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        modalInner.innerHTML = '';
+    }
+})();
+</script>
